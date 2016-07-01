@@ -1,4 +1,4 @@
-**##Demo说明**
+##Demo说明  
 这是一个测试RXjava和Retrofit进行联合使用的demo  
 从Activity1-->Activity5，逐步进行了代码的优化以及二者的结合,并且抽取了对网络的请求。  
 ___
