@@ -6,7 +6,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
+
+import com.jakewharton.rxbinding.view.RxView;
 
 import java.util.List;
 
@@ -34,6 +37,7 @@ public class MainActivity6 extends AppCompatActivity {
         mHello = (TextView) findViewById(R.id.hello);
         mTest = (Button) findViewById(R.id.test);
         mIv = (ImageView) findViewById(R.id.iv);
+        RxView.clicks(mTest).subscribe(this::getMovie);
         mTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,7 +52,12 @@ public class MainActivity6 extends AppCompatActivity {
         };
     }
 
+
     private void getMovie() {
+        HttpMethod.getInstance().getTopMovie(new ProgressSubscriber<List<Subject>>(getTopMovieOnNext,this),0,10);
+    }
+
+    private void getMovie(Void v) {
         HttpMethod.getInstance().getTopMovie(new ProgressSubscriber<List<Subject>>(getTopMovieOnNext,this),0,10);
     }
 

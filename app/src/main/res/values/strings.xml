@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RXJava</string>
+    <string name="reactive_approach">检测</string>
+    <string name="usual_approach">使用</string>
 </resources>
